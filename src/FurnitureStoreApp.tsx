@@ -44,8 +44,12 @@ export const FurnitureStoreApp = (): JSX.Element => {
             draggable
             pauseOnHover
             theme="light"
+            className="!top-4 !right-4 !left-4 sm:!left-auto sm:!w-auto !w-[calc(100%-2rem)]"
+            toastClassName="!bg-white !text-gray-800 !rounded-lg !shadow-lg !border !border-gray-200 !mb-2 !p-3 sm:!p-4 !text-sm sm:!text-base !font-medium"
+            progressClassName="!bg-[#b88e2f]"
             style={{
               fontFamily: "'Poppins', Helvetica",
+              fontSize: '14px'
             }}
           />
         </div>
