@@ -2,8 +2,10 @@ import React from "react";
 import { Button } from "../../../../components/ui/button";
 import { ChevronRightIcon } from "lucide-react";
 import { INSPIRATION_IMAGES } from "../../../../utils/imageLibrary";
+import { useNavigate } from "react-router-dom";
 
 export const InspirationSection = (): JSX.Element => {
+  const navigate = useNavigate();
   return (
     <section className="w-full bg-[#fcf8f3] py-8 sm:py-11">
       <div className="container-responsive">
@@ -16,7 +18,10 @@ export const InspirationSection = (): JSX.Element => {
             <p className="[font-family:'Poppins',Helvetica] font-medium text-[#616161] text-sm sm:text-base tracking-[0] leading-relaxed lg:leading-[24px] mb-4 sm:mb-6">
               Our designer already made a lot of beautiful prototipe of rooms that inspire you
             </p>
-            <Button className="bg-[#b88e2f] hover:bg-[#a67d28] text-white [font-family:'Poppins',Helvetica] font-semibold text-sm sm:text-base px-6 sm:px-9 py-3 h-auto w-full sm:w-auto">
+            <Button 
+              className="bg-[#b88e2f] hover:bg-[#a67d28] text-white [font-family:'Poppins',Helvetica] font-semibold text-sm sm:text-base px-6 sm:px-9 py-3 h-auto w-full sm:w-auto"
+              onClick={() => navigate('/shop')}
+            >
               Explore More
             </Button>
           </div>
@@ -46,6 +51,7 @@ export const InspirationSection = (): JSX.Element => {
               <Button
                 size="icon"
                 className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-[#b88e2f] hover:bg-[#a67d28] w-10 h-10 sm:w-12 sm:h-12"
+                onClick={() => navigate('/shop')}
               >
                 <ChevronRightIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </Button>

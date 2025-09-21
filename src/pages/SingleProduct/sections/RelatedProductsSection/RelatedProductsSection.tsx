@@ -3,6 +3,7 @@ import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
 import { getProductImageByIndex } from "../../../../utils/imageLibrary";
 import { ProductImage } from "../../../../components/ProductImage/ProductImage";
+import { useNavigate } from "react-router-dom";
 
 const relatedProducts = [
   {
@@ -41,6 +42,7 @@ const relatedProducts = [
 ];
 
 export const RelatedProductsSection = (): JSX.Element => {
+  const navigate = useNavigate();
   return (
     <section className="w-full bg-white py-[56px] border-t border-[#d9d9d9]">
       <div className="max-w-7xl mx-auto px-4">
@@ -132,6 +134,7 @@ export const RelatedProductsSection = (): JSX.Element => {
           <Button
             variant="outline"
             className="border-[#b88e2f] text-[#b88e2f] hover:bg-[#b88e2f] hover:text-white [font-family:'Poppins',Helvetica] font-semibold text-base px-[74px] py-3 h-auto"
+            onClick={() => navigate('/shop')}
           >
             Show More
           </Button>

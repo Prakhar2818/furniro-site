@@ -21,9 +21,11 @@ export const FilterSection: React.FC = () => {
     const loadBrands = async () => {
       try {
         const brandsData = await apiService.getBrands();
-        setBrands(brandsData);
+        setBrands(brandsData || []);
       } catch (error) {
         console.error('Failed to load brands:', error);
+        // Fallback to default brands if API fails
+        setBrands(['IKEA', 'Ashley', 'Wayfair', 'West Elm', 'Pottery Barn']);
       }
     };
     
@@ -207,7 +209,7 @@ export const FilterSection: React.FC = () => {
               </div>
               <div className="flex items-end">
                 <div className="text-sm text-gray-600">
-                  Showing {pagination.totalItems} results
+                  Showing {pagination?.totalItems} results
                   {localFilters.search && (
                     <span> for "{localFilters.search}"</span>
                   )}

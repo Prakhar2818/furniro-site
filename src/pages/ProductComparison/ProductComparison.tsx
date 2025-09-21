@@ -19,7 +19,7 @@ export const ProductComparison = (): JSX.Element => {
       <Banner 
         title="Product Comparison" 
         breadcrumbs={breadcrumbs} 
-        backgroundImage={BANNER_IMAGES.shop} 
+        backgroundImage={BANNER_IMAGES.comparison} 
       />
       <ComparisonContentSection productIds={productIds} />
       <Features />

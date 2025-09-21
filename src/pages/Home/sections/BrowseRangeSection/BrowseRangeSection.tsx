@@ -1,6 +1,7 @@
 import React from "react";
 import { CATEGORY_IMAGES } from "../../../../utils/imageLibrary";
 import { ProductImage } from "../../../../components/ProductImage/ProductImage";
+import { useNavigate } from "react-router-dom";
 
 const categories = [
   {
@@ -18,6 +19,11 @@ const categories = [
 ];
 
 export const BrowseRangeSection = (): JSX.Element => {
+  const navigate = useNavigate();
+  
+  const handleCategoryClick = () => {
+    navigate('/shop');
+  };
   return (
     <section className="w-full bg-white py-8 sm:py-12 lg:py-[56px]">
       <div className="container-responsive">
@@ -32,7 +38,11 @@ export const BrowseRangeSection = (): JSX.Element => {
 
         <div className="grid-responsive-categories gap-4 sm:gap-6 lg:gap-5">
           {categories.map((category, index) => (
-            <div key={index} className="text-center group cursor-pointer">
+            <div 
+              key={index} 
+              className="text-center group cursor-pointer"
+              onClick={handleCategoryClick}
+            >
               <div className="overflow-hidden rounded-lg mb-4 sm:mb-6 lg:mb-[30px]">
               <ProductImage
                 src={category.image}

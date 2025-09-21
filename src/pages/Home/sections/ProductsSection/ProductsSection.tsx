@@ -67,7 +67,7 @@ export const ProductsSection = (): JSX.Element => {
   }
 
   // Show first 8 products for home page
-  const displayProducts = products.slice(0, 8);
+  const displayProducts = products?.slice(0, 8);
 
   return (
     <section className="w-full bg-white py-8 sm:py-12 lg:py-[56px]">
@@ -79,7 +79,7 @@ export const ProductsSection = (): JSX.Element => {
         </div>
 
         <div className="grid-responsive-products gap-4 sm:gap-6 lg:gap-8 mb-6 sm:mb-8">
-          {displayProducts.filter(product => product && product._id).map((product) => (
+          {displayProducts?.filter(product => product && product._id).map((product) => (
             <Card
               key={product._id}
               className="group relative bg-[#f4f5f7] border-0 shadow-none overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer"
@@ -94,7 +94,7 @@ export const ProductsSection = (): JSX.Element => {
                     productId={product._id}
                     productName={product.name}
                   />
-                  
+
                   {/* Stock badge */}
                   <div className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-6 lg:right-6 flex flex-col gap-2">
                     {product.stock <= 5 && product.stock > 0 && (
@@ -116,7 +116,7 @@ export const ProductsSection = (): JSX.Element => {
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="text-center space-y-3 sm:space-y-4 lg:space-y-6 px-2">
-                      <Button 
+                      <Button
                         className="bg-white text-[#b88e2f] hover:bg-gray-100 [font-family:'Poppins',Helvetica] font-semibold text-xs sm:text-sm lg:text-base px-4 sm:px-8 lg:px-12 py-2 sm:py-3 h-auto w-full max-w-[150px] sm:max-w-none"
                         onClick={(e) => handleAddToCart(e, product._id)}
                         disabled={product.stock === 0}
@@ -127,7 +127,7 @@ export const ProductsSection = (): JSX.Element => {
                         <button className="flex items-center gap-1 [font-family:'Poppins',Helvetica] font-semibold text-xs sm:text-sm lg:text-base hover:text-gray-300">
                           Share
                         </button>
-                        <button 
+                        <button
                           className="flex items-center gap-1 [font-family:'Poppins',Helvetica] font-semibold text-xs sm:text-sm lg:text-base hover:text-gray-300"
                           onClick={(e) => {
                             e.stopPropagation();

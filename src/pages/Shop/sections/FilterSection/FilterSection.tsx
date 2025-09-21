@@ -7,7 +7,11 @@ import { useApp } from "../../../../context/AppContext";
 export const FilterSection = (): JSX.Element => {
   const { state } = useApp();
   const { pagination } = state;
-  const { currentPage, itemsPerPage, totalItems } = pagination;
+  
+  // Provide default values if pagination is undefined
+  const currentPage = pagination?.currentPage || 1;
+  const itemsPerPage = pagination?.itemsPerPage || 12;
+  const totalItems = pagination?.totalItems || 0;
   
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [sortBy, setSortBy] = useState('default');

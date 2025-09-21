@@ -23,6 +23,7 @@ export const BANNER_IMAGES = {
   shop: "/rectangle-1.png", // Default banner image
   about: "/rectangle-1.png", // Default banner image
   contact: "/rectangle-1.png", // Default banner image
+  comparison: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1440&h=400&q=80", // Furniture comparison banner
 } as const;
 
 // Product category images

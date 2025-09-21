@@ -357,6 +357,25 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     try {
       const newProduct = await apiService.createProduct(productData);
       dispatch({ type: 'ADD_PRODUCT', payload: newProduct });
+      
+      // Show success toast notification
+      toast.success(`✨ ${newProduct.name} has been created successfully!`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        style: {
+          borderRadius: '12px',
+          background: '#f9f1e7',
+          color: '#3a3a3a',
+          border: '2px solid #b88e2f',
+          fontFamily: "'Poppins', Helvetica",
+          fontWeight: '500',
+        },
+      });
     } catch (error) {
       dispatch({ type: 'SET_ERROR', payload: error instanceof Error ? error.message : 'Failed to create product' });
       throw error;
@@ -368,6 +387,25 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     try {
       const updatedProduct = await apiService.updateProduct(id, productData);
       dispatch({ type: 'UPDATE_PRODUCT', payload: updatedProduct });
+      
+      // Show success toast notification
+      toast.success(`📝 ${updatedProduct.name} has been updated successfully!`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        style: {
+          borderRadius: '12px',
+          background: '#f9f1e7',
+          color: '#3a3a3a',
+          border: '2px solid #b88e2f',
+          fontFamily: "'Poppins', Helvetica",
+          fontWeight: '500',
+        },
+      });
     } catch (error) {
       dispatch({ type: 'SET_ERROR', payload: error instanceof Error ? error.message : 'Failed to update product' });
       throw error;

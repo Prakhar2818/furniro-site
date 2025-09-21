@@ -1,8 +1,10 @@
 import React from "react";
 import { Button } from "../../../../components/ui/button";
 import { HERO_IMAGES } from "../../../../utils/imageLibrary";
+import { useNavigate } from "react-router-dom";
 
 export const HeroSection = (): JSX.Element => {
+  const navigate = useNavigate();
   return (
     <section className="w-full h-[500px] sm:h-[600px] lg:h-[716px] relative">
       <img
@@ -30,7 +32,10 @@ export const HeroSection = (): JSX.Element => {
               Transform your living space with our handcrafted furniture collection that combines timeless elegance with modern comfort.
             </p>
             
-            <Button className="bg-[#b88e2f] hover:bg-[#a67d28] text-white [font-family:'Poppins',Helvetica] font-bold text-sm sm:text-base px-8 sm:px-12 lg:px-[72px] py-3 sm:py-4 lg:py-[25px] h-auto w-full sm:w-auto">
+            <Button 
+              className="bg-[#b88e2f] hover:bg-[#a67d28] text-white [font-family:'Poppins',Helvetica] font-bold text-sm sm:text-base px-8 sm:px-12 lg:px-[72px] py-3 sm:py-4 lg:py-[25px] h-auto w-full sm:w-auto"
+              onClick={() => navigate('/shop')}
+            >
               BUY NOW
             </Button>
           </div>
